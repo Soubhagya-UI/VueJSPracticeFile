@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2nd</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<style type="text/css">
+		h1{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="myId">
+		<h1>{{mydata}}</h1><hr>
+		<p></p>
+	</div>
+
+<script>
+var myapp = new Vue({
+		el:'#myId',
+		data:{
+			mydata:'Heading is working fine',
+			
+		}
+	})
+</script>
+
+</body>
+</html>

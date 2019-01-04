@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>6th MouseOver | MouseOut | Mouse Move</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<style type="text/css">
+		h1{
+			text-align: center;
+		}
+        .mouseArea{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+        div{
+            float: left;
+        }
+	</style>
+</head>
+<body>
+	<div id="myId">
+        <h1>{{mydata}}</h1><hr>
+        <div class="mouseArea" v-on:mousemove='mousefun'>
+            <ul>
+                <li>X : {{x}}</li>
+                <li>Y : {{y}}</li>
+                <li>Time Stamp : {{times}}</li>
+            </ul>
+        </div>
+        <div class="mouseArea" v-on:mouseover='mouseoverfun'>
+            <ul>
+                <li>Counter : {{counter}}</li>
+            </ul>
+        </div>
+        <div class="mouseArea" @mouseout='mouseoutfun'>
+            <ul>
+                <li>Counter : {{counterhigh}}</li>
+            </ul>
+        </div>
+	</div>
+
+<script type="text/javascript">
+	var myapp = new Vue({
+		el:'#myId',
+		data:{
+            mydata:'MouseOver | MouseOut | Mouse Move',
+            x : 0,
+            y : 0,
+            times : 0,
+            counter:0,
+            counterhigh:100
+        },
+        methods :{
+            mousefun : function(event){
+                console.log(event);
+                this.x = event.offsetX;
+                this.y = event.offsetY;
+                this.times = event.timeStamp
+            },
+            mouseoverfun : function(){
+                console.log('Mouseover');
+                return this.counter++
+            },
+            mouseoutfun : function(){
+                console.log('Mouse Out');
+                return this.counterhigh--
+            }
+        }
+	})
+</script>
+</body>
+</html>

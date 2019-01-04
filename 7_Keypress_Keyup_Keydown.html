@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Keypress | Keyup | Keydown</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<style type="text/css">
+		h1{
+			text-align: center;
+		}
+		li{
+			margin: 1%;
+		}
+	</style>
+</head>
+<body>
+	<div id="myId">
+		<h1>{{mydata}}</h1><hr>
+		<ul>
+			<li>Key Press :<b>( @keypress )</b> : <input type="text" placeholder="Press Key..." @keypress='keyprssed'></li>
+			<li>Key Up :<b>( @keyup )</b> : <input type="text" placeholder="Press Up..." @keyup='keyuped'></li>	
+			<li>Key Down :<b>( @keydown )</b> : <input type="text" placeholder="Press down..." v-on:keyup='keydowned'></li>			
+
+		</ul><hr>
+		<ul>
+			<li><b>KeyDown : </b>The KeyDown event is triggered when the user presses a Key.(on press)</li>
+			<li><b>KeyUp : </b>The KeyUp event is triggered when the user releases a Key.(chadile fire haba)</li>
+			<li><b>KeyPress : </b>The KeyPress event is triggered when the user presses & releases a Key. (onKeyDown followed by onKeyUp).</li>
+		</ul>
+	</div>
+
+<script type="text/javascript">
+	var myapp = new Vue({
+		el:'#myId',
+		data:{
+			mydata:'Keypress | Keyup | Keydown'
+		},
+		methods : {
+			keyprssed : function(e){
+				console.log('Key pressed');
+				console.log(e.key);
+			},
+			keyuped : function(event){
+				// console.log('Key Up');
+				console.log(event.keyCode);
+				console.log(event.key);
+			},
+			keydowned : function(){
+				console.log('Key Down');
+			}
+		}
+	})
+</script>
+</body>
+</html>

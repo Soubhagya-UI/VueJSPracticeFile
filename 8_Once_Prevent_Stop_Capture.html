@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>8th - Once | Prevent | Stop | Capture</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<style type="text/css">
+		h1{
+			text-align: center;
+		}
+		.mybox{
+			width: 200px;
+			height: 200px;
+			float: left;
+			border: 1px solid red;
+			margin-top: 1%;
+		}
+		.wow{
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<div id="myId">
+		<h1>{{mydata}}</h1><hr>
+		<ul class="mybox">
+			<li>Counter : {{counter}}</li><br>
+			<button v-on:click.once='increment'>Click +1</button>
+		</ul>
+		<ul class="mybox">
+			<li><a href="https://www.google.com/" target="_blank" @click.prevent>Google</a></li><br>
+		</ul>
+	
+		<div @click='submitStop' class="mybox">
+			<button @click.stop='submitStop'>Submit</button>
+		</div>
+		
+		<div @click='parentfun' class="mybox">
+			Click the button to see by changing click function<br>
+			<button @click.capture='btnFun'>Submit</button>
+		</div>
+		
+
+
+
+		<div class="wow">
+			<ul>
+				<li><b>v-on:click.once - </b>It will works only once</li>
+				<li><b>@click.prevent - </b>It will stop from submting</li>
+				<li><b>@click.stop - </b>It will stop from event bublling</li>
+				<li><b>@click.capture - </b>It will stop from event bublling</li>
+			</ul>
+		</div>
+
+
+	</div>
+
+<script type="text/javascript">
+	var myapp = new Vue({
+		el:'#myId',
+		data:{
+			mydata : 'Once | Prevent | Stop | Capture',
+			counter : 0
+		},
+		methods : {
+			increment : function(){
+				this.counter++
+			},
+			submitStop : function(){
+				console.log('submit Stop woorking')
+			},
+			parentfun : function(){
+				console.log('Parent Function...')
+			},
+			btnFun : function(){
+				console.log('Button Function...')
+			}
+		}
+	})
+</script>
+</body>
+</html>

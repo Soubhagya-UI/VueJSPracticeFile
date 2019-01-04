@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>4th V-bind and V-html</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<style type="text/css">
+		h1{
+			text-align: center;
+		}
+        .btnClass{
+            background-color: green;
+        }
+	</style>
+</head>
+<body>
+	<div id="myId">
+        <h1>{{mydata}}</h1><hr>
+        <p>Link for Previous  : {{linkAddress}}</p>
+        <br>
+        <a v-bind:href="linkAddress" :title='titleOfLink' target="_blank">{{linkData}}</a><hr>
+        <input type="text" v-bind:value='inputValue'/>
+        <button v-bind:class="{btnClass:isActive}">Click to Change</button>
+	</div>
+
+<script type="text/javascript">
+	var myapp = new Vue({
+		el:'#myId',
+		data:{
+            mydata:'V-bind and V-html Example',
+            linkAddress:'file:///D:/Testing/Tutorial%2058/CDN/3_Methods.html',
+            linkData: 'Click Here',
+            titleOfLink : 'Learn about Methods',
+            isActive:false,
+            htmlContent : '<h2>This is coming from .JS file</h2>',
+            inputValue : 'Soubhgya'
+        }
+	})
+</script>
+</body>
+</html>

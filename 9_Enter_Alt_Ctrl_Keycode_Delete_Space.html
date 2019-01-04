@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>9th - Enter | Alt | Ctrl | Keycode |  Delete | Space</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<style type="text/css">
+		h1{
+			text-align: center;
+		}
+		li{
+			margin: 1%;
+		}
+	</style>
+</head>
+<body>
+	<div id="myId">
+		<h1>{{mydata}}</h1><hr>
+		<div>
+			<ul>
+				<li>
+					<input type="text" placeholder="Keypress Enter" id="" @keypress.enter='keypressevent'>
+				</li>
+				<li>
+					<input type="text" placeholder="Keyup alt Enter" id="" @keyup.alt.enter='keypressevent'>
+				</li>
+				<li>
+					<input type="text" placeholder="Keyup ctrl Enter" id="" @keyup.ctrl='keypressevent'>
+				</li>
+				<li>
+					<input type="text" placeholder="Write with spaces" id="" @keyup.space='keypressevent'>
+				</li>
+				<li>
+					<input type="text" placeholder="Write and press a" id="" @keyup.65='keypressevent'>
+				</li>
+				<li>
+					<input type="text" placeholder="Write and backspace" id="" @keyup.delete='keypressevent'>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<hr>
+	<div>
+		<ul>
+			<li><b>@keypress.enter : </b>After pressing <kbd>Enter</kbd> event will fire</li>
+			<li><b>@keyup.alt.enter : </b>After pressing <kbd>Enter</kbd>+<kbd>alt</kbd> event will fire</li>
+			<li><b>@keyup.ctrl : </b>After pressing <kbd>Enter</kbd>+<kbd>ctrl</kbd> event will fire</li>
+			<li><b>@keyup.delete : </b>After writing press <kbd>backspace</kbd> event will fire</li>
+			<li><b>@keyup.65 : </b>After writing <kbd>a</kbd> event will fire</li>
+			<li><b>@keyup.space : </b>After writing press <kbd>space</kbd> event will fire</li>
+
+
+		</ul>
+	</div>
+
+<script type="text/javascript">
+	var myapp = new Vue({
+		el:'#myId',
+		data:{
+			mydata:'Enter | Alt | Ctrl | Keycode |  Delete | Space'
+		},
+		methods : {
+			keypressevent : function(){
+				console.log('Key Pressed')
+			}
+		}
+	})
+</script>
+</body>
+</html>

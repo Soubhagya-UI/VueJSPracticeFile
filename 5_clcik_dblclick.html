@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>5th - Click and Dbl Click Event</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<style type="text/css">
+		h1{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="myId">
+        <h1>{{mydata}}</h1><hr>
+        <p>counter : {{counter}}</p>
+        <button v-on:click='incrementByOne'>Increment by 1</button>
+        <button v-on:dblclick='incrementByTwo'>Increment by 2</button>
+        <button v-on:click='decrementByOne'>Decrement by 1</button>
+
+
+	</div>
+
+<script type="text/javascript">
+	var myapp = new Vue({
+		el:'#myId',
+		data:{
+            mydata:'Click event(v-on:click) and Double Click(v-on:dblclick) Event',
+            counter:0
+        },
+        methods:{
+            incrementByOne : function(){
+                this.counter = this.counter + 1
+            },
+            incrementByTwo : function(){
+                this.counter = this.counter + 2
+            },
+            decrementByOne : function(){
+                this.counter = this.counter - 1
+            }
+        }
+	})
+</script>
+</body>
+</html>
